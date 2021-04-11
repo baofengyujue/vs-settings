@@ -1,0 +1,223 @@
+// Place your key bindings in this file to override the defaultsauto[]
+[
+    // 覆盖默认快捷键，ctrl+space被系统注册为了更换输入法，
+    // 无论是在windows还是ubuntu上
+    {
+        "key": "alt+a",
+        "command": "editor.action.triggerSuggest",
+        "when": "editorHasCompletionItemProvider && textInputFocus && !editorReadonly"
+    },
+    {
+        "key": "alt+a",
+        "command": "toggleSuggestionDetails",
+        "when": "suggestWidgetVisible && textInputFocus"
+    },
+    // ctrl+`
+    // 覆盖intellij插件快捷键，vscode为开关集成terminal面板
+    {
+        "key": "ctrl+oem_3",
+        "command": "workbench.action.terminal.toggleTerminal"
+    },
+    // 覆盖intellij插件快捷键，插件为上下移动语句
+    {
+        "key": "ctrl+shift+up",
+        "command": "editor.action.insertCursorAbove",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "ctrl+shift+down",
+        "command": "editor.action.insertCursorBelow",
+        "when": "editorTextFocus"
+    },
+    // 覆盖默认快捷键，默认为焦点切换到相应分屏面板
+    // 这里自定义为对选择文字两端输入相同字符
+    {
+        "key": "ctrl+1",
+        "command": "editor.action.insertSnippet",
+        // 选中文字时快捷键生效
+        "when": "editorHasSelection",
+        "args": {
+            "snippet": "$1$TM_SELECTED_TEXT$1"
+        }
+    },
+    // 这里自定义为对选择文字两端输入相同标签
+    {
+        "key": "ctrl+2",
+        "command": "editor.action.insertSnippet",
+        // 任何情况下，即使没有选中文字也可以进行快捷键输入
+        "when": "",
+        "args": {
+            "snippet": "<$1>$TM_SELECTED_TEXT$2</$1>$0"
+        }
+    },
+    // markdown文件中插入键盘输入标签
+    {
+        "key": "ctrl+3",
+        "command": "editor.action.insertSnippet",
+        // 快捷键生效需要为markdown文件
+        "when": "editorLangId == markdown",
+        "args": {
+            "snippet": "<kbd>$TM_SELECTED_TEXT$1</kbd>$0"
+        }
+    },
+    // 注意这里不能有像插件中一样的"when": "editorFocus"条件，
+    // 如果有该条件，alt+3过后，失去编辑器焦点了，再按alt+3就关闭不了面板了
+    // {
+    //     "key": "alt+3",
+    //     "command": "workbench.view.scm",
+    // }
+    // ctrl+e为quickOpen更合适点，而不是插件定义的那个
+    {
+        "key": "ctrl+e",
+        "command": "workbench.action.quickOpen"
+    },
+    // 保存单个文件就行了，因为intellij中新建文件
+    // 会提示输入文件名创建新文件，其保存所有的时候不会打扰我，而vscode中新建文件
+    // 过后默认保存在缓存区,保存的时候弹出窗口提示我输入文件名，打扰到我了。
+    {
+        "key": "ctrl+s",
+        "command": "workbench.action.files.save"
+    },
+    // ctrl+;
+    {
+        "key": "ctrl+oem_1",
+        "command": "cursorEnd",
+        "when": "textInputFocus"
+    },
+    {
+        "key": "f2",
+        "command": "editor.action.rename",
+        "when": "editorHasRenameProvider && editorTextFocus && !editorReadonly"
+    },
+    // "args"属性可以不用加的，因为默认的就没有加，但这里不加会有警告，
+    // 而且里面还必须得有"viewType"属性
+    {
+        "key": "ctrl+n",
+        "command": "workbench.action.files.newUntitledFile",
+        "args": {
+            "viewType": "default"
+        }
+    },
+    // 很多command在keyboard shortcuts里是搜索不到的，比如这个editorScroll怎么都搜索不到，
+    // 但是在这里输入又会有提示
+    // 这里value为执行此操作的单位次数，不能为小数(若为小数则取其地板值)
+    {
+        "key": "alt+m",
+        "command": "editorScroll",
+        "when": "editorFocus",
+        "args": {
+            "to": "down",
+            "by": "halfPage",
+            "value": 1
+        }
+    },
+    {
+        "key": "alt+n",
+        "command": "editorScroll",
+        "when": "editorFocus",
+        "args": {
+            "to": "up",
+            "by": "halfPage",
+            "value": 1
+        }
+    },
+    // 此功能保持为vscode默认的f5键
+    {
+        "key": "f9",
+        "command": "-workbench.action.debug.continue",
+        "when": "inDebugMode"
+    },
+    // 添加ctrl+q为f5的调试运行功能（方便操作）
+    // 找到f5的两个功能，然后分别对其右键add keybinding
+    {
+        "key": "ctrl+q",
+        "command": "workbench.action.debug.start",
+        "when": "debuggersAvailable && !inDebugMode"
+    },
+    {
+        "key": "ctrl+r",
+        "command": "workbench.action.debug.restart",
+        "when": "inDebugMode"
+    },
+    {
+        "key": "ctrl+q",
+        "command": "workbench.action.debug.continue",
+        "when": "inDebugMode"
+    },
+    {
+        "key": "ctrl+e",
+        "command": "workbench.action.debug.stop",
+        "when": "inDebugMode"
+    },
+    // 默认的alt+z不好按，而且微信截图快捷键默认也是它
+    {
+        "key": "alt+q",
+        "command": "editor.action.toggleWordWrap"
+    },
+    // 默认重做就好了，不要intellij的删除行
+    {
+        "key": "ctrl+y",
+        "command": "-editor.action.deleteLines",
+        "when": "editorTextFocus && !editorReadonly"
+    },
+    // 保留intellij中的ctrl+alt+s为打开设置
+    // Windows下，ctrl+,被系统拦截了
+    // 注意在Ubuntu下，ctrl+alt+s被系统拦截了，并且解除不了此拦截，
+    // 所以在Ubuntu下还是用ctrl+,，其没有被Ubuntu拦截
+    {
+        "key": "ctrl+alt+s",
+        "command": "workbench.action.openSettings"
+    },
+    // 为Bookmars插件设置下面快捷键
+    {
+        "key": "ctrl+p",
+        "command": "bookmarks.jumpToPrevious",
+        "when": "editorTextFocus"
+    },
+    // 默认ctrl+m为toggle tab moves foucus意思就是按tab不为输入tab了，而是切换焦点，
+    // 这个功能没什么用，故将其占用。
+    {
+        "key": "ctrl+m",
+        "command": "bookmarks.jumpToNext",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "ctrl+shift+b",
+        "command": "bookmarks.toggle",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "ctrl+b",
+        "command": "bookmarks.toggleLabeled",
+        "when": "editorTextFocus"
+    },
+    // 交换一下ctrl+j和ctrl+shift+j原本的功能，
+    // ctrl+shift+j本来被intellij插件占用为结合行
+    {
+        "key": "ctrl+shift+j",
+        "command": "workbench.action.togglePanel"
+    },
+    {
+        "key": "ctrl+j",
+        "command": "editor.action.joinLines",
+        "when": "editorTextFocus && !editorReadonly"
+    },
+    {
+        "key": "ctrl+alt+l",
+        "command": "-bookmarks.jumpToNext",
+        "when": "editorTextFocus"
+    }
+
+    // - todo:ctrl+n,alt+up,f2,ctrl+y
+    // - note:vscode即使有文件没保存，最外层的大窗口关闭了也不会有提示保存，因为再次打开其还是关闭时未保存的状态
+    // (应该是与hot exit设置有关)，但似乎重新打开vscode后，原来为保存的文件一直按ctrl+z，怎么都去不了那个
+    // 在编辑器标签卡上的未保存小点了，不过这也是可以理解的，毕竟你是重新打开vscode的，之前的历史记录已经没有了，
+    // 但又不能说你已经回到了最初保存时的样子。所以这时要特别注意不要对文件做一些实验性的修改了过后再热退出，
+    // 否则就会回不到最初的状态了
+
+    // Ubuntu下，下列快捷键被系统拦截了：
+    // [ctrl+.]与[ctrl+;]
+    // [ctrl+alt+up/down]都被Ubuntu注册为切换窗口快捷键了
+    // [ctrl+alt+shift+up/down]也被Ubuntu注册为切换窗口快捷键了
+    // [ctrl+alt+s]被系统拦截了，并且解除不了此拦截
+]

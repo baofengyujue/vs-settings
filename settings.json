@@ -1,0 +1,61 @@
+{
+    "telemetry.enableTelemetry": false,
+    "telemetry.enableCrashReporter": false,
+    "update.enableWindowsBackgroundUpdates": false,
+    "php.validate.executablePath": "D:\\xampp\\php\\php.exe",
+    "editor.fontFamily": "Consolas, 'Courier New', monospace, 'Microsoft YaHei'",
+    "files.associations": {
+        "*.cjson": "jsonc",
+        // 小程序文件后缀
+        "*.wxss": "css",
+        "*.wxs": "javascript"
+    },
+    "emmet.includeLanguages": {
+        "wxml": "html"
+    },
+    "minapp-vscode.disableAutoConfig": true,
+    // 忽略插件推荐
+    "extensions.ignoreRecommendations": true,
+    // 这句会单独打开git bash窗口
+    // "terminal.integrated.shell.windows": "D:\\ProgramFiles\\Git\\git-bash.exe"
+    // 这句为vscode的集成终端窗口
+    "terminal.integrated.shell.windows": "C:\\WINDOWS\\System32\\cmd.exe",
+    // 点击同步按钮时，是否确认同步。同步默认为先pull再push
+    "git.confirmSync": false,
+    "editor.minimap.enabled": false,
+    // 删除文件时，是否确认删除；删除还是确认一下，很容易删错。
+    // "explorer.confirmDelete": false,
+    // 设置为"selection"为选择文本时能看到空格，为"all"时，不选择也能看到
+    "editor.renderWhitespace": "selection",
+    // 配置默认运行参数，特定项目运行配置可以在项目的目录顶层添加.vscode目录，
+    // 里面再添加launch.json文件，再在里面添加特定的运行配置
+    // "launch": {
+    //     "version": "0.2.0",
+    //     "configurations": [
+    //         {
+    //             "type": "node",
+    //             "request": "launch",
+    //             "name": "Run Current Opened File",
+    //             "skipFiles": [
+    //                 "<node_internals>/**"
+    //             ],
+    //             "program": "${file}"
+    //         }
+    //     ]
+    // },
+    // Editor:insert spaces和Editor:tab size会受缩进探测设置影响
+    // 如果打开的话，两个设置都有可能都不生效
+    "editor.detectIndentation": false,
+    // 数组中可添加多个数字，表示多条ruler的位置
+    "editor.rulers": [
+        100
+    ],
+    // 列选择模式这一项为vscode自动添加的，
+    // 设置控制的，无需在这里修改
+    "editor.columnSelection": false,
+
+    // 输入的时候，是否弹出快速建议
+    // "editor.quickSuggestions": false,
+    "emmet.triggerExpansionOnTab": true,
+    "files.autoSave": "onWindowChange"
+}
