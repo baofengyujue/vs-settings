@@ -57,5 +57,6 @@
     // 输入的时候，是否弹出快速建议
     // "editor.quickSuggestions": false,
     "emmet.triggerExpansionOnTab": true,
-    "files.autoSave": "onWindowChange"
+    "files.autoSave": "onWindowChange",
+    "git.autofetch": true
 }
